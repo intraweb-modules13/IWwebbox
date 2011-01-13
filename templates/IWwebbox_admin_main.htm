@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             {section name=IWwebbox loop=$IWwebbox}
-            <tr class="{cycle values="pn-odd,pn-even"}">
+            <tr class="{cycle values="z-odd,z-even"}">
                 <td>{$IWwebbox[IWwebbox].ref|safetext}</td>
                 <td>
                     <a href="{$IWwebbox[IWwebbox].url|safetext}" target="_blank">

@@ -12,7 +12,7 @@ function smarty_function_iwwebboxmenulinks($params, &$smarty) {
         $params['seperator'] = '|';
     }
     if (!isset($params['class'])) {
-        $params['class'] = 'pn-menuitem-title';
+        $params['class'] = 'z-menuitem-title';
     }
 
     $webboxmenulinks = "<span class=\"" . $params['class'] . "\">" . $params['start'] . " ";
