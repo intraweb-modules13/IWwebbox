@@ -23,5 +23,4 @@ class IWwebbox_Version extends Zikula_Version
          */
         return $meta;
     }
-
 }
