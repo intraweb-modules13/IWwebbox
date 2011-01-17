@@ -18,31 +18,31 @@
  */
 function IWwebbox_tables() {
     // Initialise table array
-    $pntable = array();
+    $table = array();
 
     // IWwebbox table definition
-    $pntable['IWwebbox'] = DBUtil::getLimitedTablename('IWwebbox');
-    $pntable['IWwebbox_column'] = array('pid' => 'iw_pid',
-                                        'url' => 'iw_url',
-                                        'ref' => 'iw_ref',
-                                        'scrolls' => 'iw_scrolls',
-                                        'description' => 'iw_description',
-                                        'width' => 'iw_width',
-                                        'height' => 'iw_height',
-                                        'widthunit' => 'iw_widthunit');
+    $table['IWwebbox'] = DBUtil::getLimitedTablename('IWwebbox');
+    $table['IWwebbox_column'] = array('pid' => 'iw_pid',
+                                      'url' => 'iw_url',
+                                      'ref' => 'iw_ref',
+                                      'scrolls' => 'iw_scrolls',
+                                      'description' => 'iw_description',
+                                      'width' => 'iw_width',
+                                      'height' => 'iw_height',
+                                      'widthunit' => 'iw_widthunit');
 
-    $pntable['IWwebbox_column_def'] = array('pid' => "I NOTNULL AUTO PRIMARY",
-                                            'url' => "C(255) NOTNULL DEFAULT ''",
-                                            'ref' => "C(10) NOTNULL DEFAULT ''",
-                                            'scrolls' => "I(1) NOTNULL DEFAULT '1'",
-                                            'description' => "C(255) NOTNULL DEFAULT ''",
-                                            'width' => "I NOTNULL DEFAULT '100'",
-                                            'height' => "I NOTNULL DEFAULT '600'",
-                                            'widthunit' => "C(10) NOTNULL DEFAULT '%'");
+    $table['IWwebbox_column_def'] = array('pid' => "I NOTNULL AUTO PRIMARY",
+                                          'url' => "C(255) NOTNULL DEFAULT ''",
+                                          'ref' => "C(10) NOTNULL DEFAULT ''",
+                                          'scrolls' => "I(1) NOTNULL DEFAULT '1'",
+                                          'description' => "C(255) NOTNULL DEFAULT ''",
+                                          'width' => "I NOTNULL DEFAULT '100'",
+                                          'height' => "I NOTNULL DEFAULT '600'",
+                                          'widthunit' => "C(10) NOTNULL DEFAULT '%'");
 
-    ObjectUtil::addStandardFieldsToTableDefinition($pntable['IWwebbox_column'], 'pn_');
-    ObjectUtil::addStandardFieldsToTableDataDefinition($pntable['IWwebbox_column_def'], 'iw_');
+    ObjectUtil::addStandardFieldsToTableDefinition($table['IWwebbox_column'], 'pn_');
+    ObjectUtil::addStandardFieldsToTableDataDefinition($table['IWwebbox_column_def'], 'iw_');
 
     // Return the table information
-    return $pntable;
+    return $table;
 }
