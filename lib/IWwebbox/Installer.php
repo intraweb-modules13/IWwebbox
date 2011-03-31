@@ -35,4 +35,8 @@ class IWwebbox_Installer extends Zikula_Installer {
         //Deletion successfull
         return true;
     }
+
+    public function  upgrade($oldversion) {
+        return true;
+    }
 }
