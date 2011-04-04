@@ -1,5 +1,5 @@
 <?php
-class IWwebbox_Api_Admin extends Zikula_Api
+class IWwebbox_Api_Admin extends Zikula_AbstractApi
 {
     /**
      * Insert a new URL reference into the database

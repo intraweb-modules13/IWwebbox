@@ -1,5 +1,5 @@
 <?php
-class IWwebbox_Installer extends Zikula_Installer {
+class IWwebbox_Installer extends Zikula_AbstractInstaller {
     /**
      * Initialise the IWwebbox module creating module tables and module vars
      * @author Albert Pérez Monfort (intraweb@xtec.cat)

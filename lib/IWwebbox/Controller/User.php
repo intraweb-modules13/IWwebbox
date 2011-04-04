@@ -1,6 +1,6 @@
 <?php
 
-class IWwebbox_Controller_User extends Zikula_Controller {
+class IWwebbox_Controller_User extends Zikula_AbstractController {
 
     /**
      * Load the url received. If not a ref or url is received loads the url stored in the modules vars

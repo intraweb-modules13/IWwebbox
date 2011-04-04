@@ -1,6 +1,6 @@
 <?php
 
-class IWwebbox_Controller_Admin extends Zikula_Controller {
+class IWwebbox_Controller_Admin extends Zikula_AbstractController {
     /**
      * Show the list of references created
      *

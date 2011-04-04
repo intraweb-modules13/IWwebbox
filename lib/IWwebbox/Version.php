@@ -5,7 +5,7 @@
  * @author		Albert Pérez Monfort (intraweb@xtec.cat)
  * @return		The version information
  */
-class IWwebbox_Version extends Zikula_Version
+class IWwebbox_Version extends Zikula_AbstractVersion
 {
     public function getMetaData() {
         $meta = array();

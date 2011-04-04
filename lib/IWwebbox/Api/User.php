@@ -1,5 +1,5 @@
 <?php
-class IWwebbox_Api_User extends Zikula_Api
+class IWwebbox_Api_User extends Zikula_AbstractApi
 {
     /**
      * Return all the references that have been created
