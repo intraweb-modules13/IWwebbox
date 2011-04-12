@@ -1,9 +1,9 @@
 {include file="IWwebbox_admin_menu.htm"}
 <div class="z-admincontainer">
-    <div class="z-adminpageicon">{img modname='core' src='filenew.gif' set='icons/large' __alt=''}</div>
+    <div class="z-adminpageicon">{img modname='core' src='filenew.png' set='icons/large' __alt=''}</div>
     <h2>{gt text="Add new URL"}</h2>
-    <form class="z-form" action="{modurl modname="IWwebbox" type="admin" func="create"}" method="post" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
-        <input type="hidden" name="authid" value="{insert name="generateauthkey" module="IWwebbox"}" />
+    <form id="newItem" class="z-form" action="{modurl modname="IWwebbox" type="admin" func="create"}" method="post" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
+          <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <div class="z-formrow">
             <label for="webbox_ref">{gt text="Reference"}</label>
             <input id="ref" name="webbox[ref]" type="text" size="10" maxlength="10" />
@@ -34,11 +34,17 @@
             <label for="webbox_scrolls">{gt text="Show scroll"}</label>
             <input id="scrolls" name="webbox[scrolls]" type="checkbox" checked /> {gt text="(recommended)"}
         </div>
-        <div class="z-formbuttons">
-            {button src='button_ok.gif' set='icons/small' __alt="Create" __title="Create"}{gt text="Create"}
-            <a href="{modurl modname=IWwebbox type=admin func=main}">
-                {img modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"}
-            </a>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a onClick="javascript:forms['newItem'].submit()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Create" __title="Modify"} {gt text="Create"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname=IWwebbox type=admin func=main}">
+                    {img modname='core' src='button_cancel.png' set='icons/small'   __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
+            </span>
         </div>
     </form>
 </div>

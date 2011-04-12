@@ -3,8 +3,9 @@
     <div class="z-adminpageicon">{img modname='core' src='configure.png' set='icons/large' __alt=''}</div>
     <h2>{gt text="Module configuration"}</h2>
     <form class="z-form" id="conf" action="{modurl modname="IWwebbox" type="admin" func="update_conf"}" method="post" enctype="application/x-www-form-urlencoded">
-          <input type="hidden" name="authid" value="{secgenauthkey module="IWwebbox"}" />
-           <div class="z-formrow">
+
+          <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
+        <div class="z-formrow">
             <label for="webbox_url">{gt text="Home URL for the module"}</label>
             <input id="url" name="webbox[url]" type="text" size="70" maxlength="255" value="{$url|safetext}" />
         </div>
@@ -34,9 +35,9 @@
                     {img modname='core' src='button_ok.png' set='icons/small' __alt="Modify" __title="Modify"} {gt text="Modify"}
                 </a>
             </span>
-             <span class="z-buttons">
+            <span class="z-buttons">
                 <a href="{modurl modname=IWwebbox type=admin func=main}">
-                    {img modname='core' src='button_cancel.gif' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
                 </a>
             </span>
         </div>

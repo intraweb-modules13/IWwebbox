@@ -45,23 +45,20 @@
                 </td>
                 <td>
                     <a href="{modurl modname="IWwebbox" type="admin" func="modify" pid=$IWwebbox[IWwebbox].pid}">
-                        {img modname='core' src='xedit.gif' set='icons/extrasmall'   __alt="Edit" __title="Edit"}
+                        {img modname='core' src='xedit.png' set='icons/extrasmall'   __alt="Edit" __title="Edit"}
                     </a>
                     <a href="{modurl modname="IWwebbox" type="admin" func="delete" pid=$IWwebbox[IWwebbox].pid}">
-                        {img modname='core' src='14_layer_deletelayer.gif' set='icons/extrasmall'   __alt="Edit" __title="Delete"}
+                        {img modname='core' src='14_layer_deletelayer.png' set='icons/extrasmall'   __alt="Edit" __title="Delete"}
                     </a>
                 </td>
             </tr>
             {/section}
         </tbody>
     </table>
-    <div style="clear:both; height: 30px;">
-        {img modname='core' src='info.gif' set='icons/extrasmall'} {gt text="To call a reference it is necessary to write 'module=IWwebbox&ref=Reference'"}
+    <div class="z-informationmsg">
+        {gt text="To call a reference it is necessary to write 'module=IWwebbox&ref=Reference'"}
     </div>
     {else}
     <div style="height: 20px;">{gt text="There are not URL created"}</div>
     {/if}
-    <div style="clear:both; ">
-        <a href="{modurl modname=IWwebbox type=admin func=module}">{gt text="About this module"}</a>
-    </div>
 </div>

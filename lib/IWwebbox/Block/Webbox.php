@@ -1,6 +1,7 @@
 <?php
-class IWwebbox_Block_Webbox extends Zikula_Block
-{
+// TODO: Bloc options managment
+class IWwebbox_Block_Webbox extends Zikula_Controller_AbstractBlock {
+
     /**
      * initialise block
      *
@@ -20,12 +21,12 @@ class IWwebbox_Block_Webbox extends Zikula_Block
     public function info() {
         // Values
         return array('text_type' => 'Webbox',
-                     'module' => 'IWwebbox',
-                     'text_type_long' => $this->__('Web sites container'),
-                     'allow_multiple' => true,
-                     'form_content' => false,
-                     'form_refresh' => false,
-                     'show_preview' => true);
+            'module' => 'IWwebbox',
+            'text_type_long' => $this->__('Web sites container'),
+            'allow_multiple' => true,
+            'form_content' => false,
+            'form_refresh' => false,
+            'show_preview' => true);
     }
 
     /**
@@ -114,7 +115,8 @@ class IWwebbox_Block_Webbox extends Zikula_Block
             return false;
         }
 
-        if ($vars['titlevalue'] == 1 && $vars['widthvalue'] > 98) $vars['widthvalue'] = 98;
+        if ($vars['titlevalue'] == 1 && $vars['widthvalue'] > 98)
+            $vars['widthvalue'] = 98;
 
         $vars['scrolls'] = ($vars['scrollvalue'] == 1) ? 'auto' : 'no';
 
@@ -122,7 +124,8 @@ class IWwebbox_Block_Webbox extends Zikula_Block
             if ($vars['widthvalue'] != 0) {
                 $output = '<p><iframe src="' . $vars['weburlvalue'] . '" width=' . $vars['widthvalue'] . '% height=' . $vars['heightvalue'] . ' scrolling=' . $vars['scrolls'] . ' frameborder=0></iframe></p>';
 
-                if ($vars['titlevalue'] == '1') $row['title'] = '';
+                if ($vars['titlevalue'] == '1')
+                    $row['title'] = '';
 
                 // Create output object
                 $view = Zikula_View::getInstance('IWwebbox', false);
@@ -139,4 +142,5 @@ class IWwebbox_Block_Webbox extends Zikula_Block
         }
         return false;
     }
+
 }

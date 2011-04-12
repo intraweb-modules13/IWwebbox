@@ -2,8 +2,8 @@
 <div class="z-admincontainer">
     <div class="z-adminpageicon">{img modname='core' src='edit.gif' set='icons/large' __alt=''}</div>
     <h2>{gt text="Add new URL"}</h2>
-    <form class="z-form" action="{modurl modname="IWwebbox" type="admin" func="update"}" method="post" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
-        <input type="hidden" name="authid" value="{insert name="generateauthkey" module="IWwebbox"}" />
+    <form id="editItem" class="z-form" action="{modurl modname="IWwebbox" type="admin" func="update"}" method="post" enctype="application/x-www-form-urlencoded" onSubmit="return send()">
+          <input type="hidden" name="csrftoken" value="{insert name='csrftoken'}" />
         <input type="hidden" name="webbox[pid]" value="{$pid|safetext}" />
 
         <div class="z-formrow">
@@ -38,11 +38,17 @@
             <label for="webbox_scrolls">{gt text="Show scroll"}</label>
             <input id="scrolls" name="webbox[scrolls]" type="checkbox" {if $scrolls}checked{/if} /> {gt text="(recommended)"}
         </div>
-        <div class="z-formbuttons">
-            {button src='button_ok.gif' set='icons/small' __alt="Modify" __title="Modify"}{gt text="Modify"}
-            <a href="{modurl modname=IWwebbox type=admin func=main}">
-                {img modname='core' src='button_cancel.gif' set='icons/small'   __alt="Cancel" __title="Cancel"}
-            </a>
+        <div class="z-center">
+            <span class="z-buttons">
+                <a onClick="javascript:forms['editItem'].submit()">
+                    {img modname='core' src='button_ok.png' set='icons/small' __alt="Create" __title="Modify"} {gt text="Modify"}
+                </a>
+            </span>
+            <span class="z-buttons">
+                <a href="{modurl modname=IWwebbox type=admin func=main}">
+                    {img modname='core' src='button_cancel.png' set='icons/small' __alt="Cancel" __title="Cancel"} {gt text="Cancel"}
+                </a>
+            </span>
         </div>
     </form>
 </div>
