@@ -109,10 +109,15 @@ class IWwebbox_Block_Webbox extends Zikula_Controller_AbstractBlock {
     public function display($row) {
         // Get current content
         $vars = BlockUtil::varsFromContent($row['content']);
-
+        
         // Security check
         if (!SecurityUtil::checkPermission('IWwebbox:webboxBlock:', $row['title'] . "::", ACCESS_READ)) {
             return false;
+        }
+        
+        // Add 'http://' if any protocol is specified in the URL
+        if (!parse_url($vars['weburlvalue'], PHP_URL_SCHEME)) {
+            $vars['weburlvalue'] = 'http://' . $vars['weburlvalue'];
         }
 
         if ($vars['titlevalue'] == 1 && $vars['widthvalue'] > 98)
@@ -122,7 +127,6 @@ class IWwebbox_Block_Webbox extends Zikula_Controller_AbstractBlock {
 
         if (($vars['notunregvalue'] == 1 && !UserUtil::isLoggedIn()) || $vars['notunregvalue'] == '-1') {
             if ($vars['widthvalue'] != 0) {
-                $output = '<p><iframe src="' . $vars['weburlvalue'] . '" width=' . $vars['widthvalue'] . '% height=' . $vars['heightvalue'] . ' scrolling=' . $vars['scrolls'] . ' frameborder=0></iframe></p>';
 
                 if ($vars['titlevalue'] == '1')
                     $row['title'] = '';
