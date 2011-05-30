@@ -63,7 +63,7 @@ class IWwebbox_Installer extends Zikula_AbstractInstaller {
         $oldVars = DBUtil::selectObjectArray("module_vars", "`z_modname` = 'iw_webbox'", '', -1, -1, '', null, null, array('name', 'value'));
 
         //Array de noms
-        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`z_modname` = 'iw_main'", '', false, '');
+        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`z_modname` = 'iw_webbox'", '', false, '');
 
         $newVarsNames = Array('url', 'width', 'height', 'scrolls', 'widthunit');
 
