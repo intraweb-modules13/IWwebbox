@@ -39,7 +39,13 @@ class IWwebbox_Installer extends Zikula_AbstractInstaller {
         //Deletion successfull
         return true;
     }
-
+    /**
+     * Update the IWwebbox module
+     * @author Albert Pérez Monfort (aperezm@xtec.cat)
+     * @author Jaume Fernàndez Valiente (jfern343@xtec.cat)
+     * @return bool true if successful, false otherwise
+     */
+    
     public function upgrade($oldversion) {
 
 
