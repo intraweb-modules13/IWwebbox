@@ -77,7 +77,7 @@ class IWwebbox_Installer extends Zikula_AbstractInstaller {
         //Delete unneeded vars and update the rest
         foreach ($oldVarsNames as $old) {
             // echo ($old . '<br>');
-            $this->delVar($del);
+            ModUtil::delVar('iw_webbox', $old);
             if ($newVars[$old]) {
                 //     echo ($old . ' ' . $newVars[$old]);
                 $this->addVar($old, $oldVars[$old]);
