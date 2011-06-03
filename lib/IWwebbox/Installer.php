@@ -79,7 +79,7 @@ class IWwebbox_Installer extends Zikula_AbstractInstaller {
             'width' => '100',
             'height' => '600',
             'scrolls' => '1',
-            'widthunit', '%');    
+            'widthunit' => '%');    
 
         // Delete unneeded vars
         $del = array_diff($oldVarsNames, $newVarsNames);
