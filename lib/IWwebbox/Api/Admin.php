@@ -1,6 +1,7 @@
 <?php
-class IWwebbox_Api_Admin extends Zikula_AbstractApi
-{
+
+class IWwebbox_Api_Admin extends Zikula_AbstractApi {
+
     /**
      * Insert a new URL reference into the database
      *
@@ -19,7 +20,8 @@ class IWwebbox_Api_Admin extends Zikula_AbstractApi
      */
     public function create($args) {
         // Optiona argument
-        if (!isset($args['description'])) $args['description'] = '';
+        if (!isset($args['description']))
+            $args['description'] = '';
 
         // Check if args have arrived properly
         if (!isset($args['url']) || !isset($args['ref'])) {
@@ -55,8 +57,7 @@ class IWwebbox_Api_Admin extends Zikula_AbstractApi
         }
 
         // Get the current faq
-        $item = ModUtil::apiFunc('IWwebbox', 'user', 'get',
-                                  array('pid' => $args['pid']));
+        $item = ModUtil::apiFunc('IWwebbox', 'user', 'get', array('pid' => $args['pid']));
 
         if (!$item) {
             return LogUtil::registerError($this->__('No such item found.'));
@@ -72,8 +73,7 @@ class IWwebbox_Api_Admin extends Zikula_AbstractApi
         }
 
         // Let any hooks know that we have deleted an item
-        ModUtil::callHooks('item', 'delete', $args['pid'],
-                            array('module' => 'IWwebbox'));
+        ModUtil::callHooks('item', 'delete', $args['pid'], array('module' => 'IWwebbox'));
 
         // The item has been deleted, so we clear all cached pages of this item.
         $view = Zikula_View::getInstance('IWwebbox');
@@ -128,8 +128,18 @@ class IWwebbox_Api_Admin extends Zikula_AbstractApi
         $view->clear_cache(null, $args['pid']);
 
         // Let any hooks know that we have updated an item
-        ModUtil::callHooks('item', 'update', $args['pid'],
-                            array('module' => 'IWwebbox'));
+        ModUtil::callHooks('item', 'update', $args['pid'], array('module' => 'IWwebbox'));
         return true;
     }
+
+    public function getlinks($args) {
+        $links = array();
+        if (SecurityUtil::checkPermission('IWwebbox::', '::', ACCESS_ADMIN)) {
+            $links[] = array('url' => ModUtil::url('IWwebbox', 'admin', 'main'), 'text' => $this->__('Show existing URL'), 'id' => 'iwwebbox_view', 'class' => 'z-icon-es-view');
+            $links[] = array('url' => ModUtil::url('IWwebbox', 'admin', 'newitem'), 'text' => $this->__('Add new URL'), 'id' => 'iwwebbox_create', 'class' => 'z-icon-es-new');
+            $links[] = array('url' => ModUtil::url('IWwebbox', 'admin', 'conf'), 'text' => $this->__('Module configuration'), 'id' => 'iwwebbox_conf', 'class' => 'z-icon-es-config');
+        }
+        return $links;
+    }
+
 }
