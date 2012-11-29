@@ -48,30 +48,15 @@ class IWwebbox_Installer extends Zikula_AbstractInstaller {
      */
     public function upgrade($oldversion) {
 
-
-        $prefix = $GLOBALS['ZConfig']['System']['prefix'];
-
-        //Rename table
-        if (!DBUtil::renameTable('iw_webbox', 'IWwebbox'))
-            return false;
-
         // Update z_blocs table
 
-        $c = "UPDATE {$prefix}_blocks SET z_bkey = 'Webbox' WHERE z_bkey = 'webbox'";
-        if (!DBUtil::executeSQL($c)) {
-            return false;
-        }
-
-        // Update module_vars table
-
-        //Update the name (keeps old var value)
-        $c = "UPDATE {$prefix}_module_vars SET z_modname = 'IWwebbox' WHERE z_bkey = 'iw_webbox'";
+        $c = "UPDATE blocks SET bkey = 'Webbox' WHERE bkey = 'webbox'";
         if (!DBUtil::executeSQL($c)) {
             return false;
         }
 
         //Array de noms
-        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`z_modname` = 'IWwebbox'", '', false, '');
+        $oldVarsNames = DBUtil::selectFieldArray("module_vars", 'name', "`modname` = 'IWwebbox'", '', false, '');
 
         $newVarsNames = Array('url', 'width', 'height', 'scrolls', 'widthunit');
 
